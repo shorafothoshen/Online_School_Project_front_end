@@ -3,7 +3,7 @@ const LoadTeacherProfile=async()=>{
     const teacherdoc=document.getElementById("TeacherprofileDetails");
     console.log(peram);
     
-    const res=await fetch(`http://127.0.0.1:8000/api/teachers/${peram}/`);
+    const res=await fetch(`https://online-school-project.onrender.com/api/teachers/${peram}/`);
     const teacher=await res.json();
     
     console.log(teacher);

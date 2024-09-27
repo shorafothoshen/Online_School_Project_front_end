@@ -1,6 +1,6 @@
 const LoadCourse=async ()=>{
     const peram=new URLSearchParams(location.search).get("courseId");
-    const res=await fetch(`http://127.0.0.1:8000/api/course/${peram}/`);
+    const res=await fetch(`https://online-school-project.onrender.com/api/course/${peram}/`);
     const courseDetails=await res.json();
     displayCourse(courseDetails)
     console.log(courseDetails.reviews);
@@ -64,7 +64,7 @@ const EnrollCourse=async()=> {
       course_id: courseId
   };
   try {
-      const response = await fetch('http://127.0.0.1:8000/payment/enroll/', {
+      const response = await fetch('https://online-school-project.onrender.com/payment/enroll/', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const token = localStorage.getItem('Token');
         const user = localStorage.getItem('user_id');
         
-        const response = await fetch(`http://127.0.0.1:8000/api/course/reviews/`, {
+        const response = await fetch(`https://online-school-project.onrender.com/api/course/reviews/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -118,7 +118,7 @@
         async function fetchCourses() {
             const userId = localStorage.getItem("user_id");
             try {
-                const response = await fetch(`http://127.0.0.1:8000/payment/check-enrollment/${userId}/`);
+                const response = await fetch(`https://online-school-project.onrender.com/payment/check-enrollment/${userId}/`);
                 const data = await response.json();
                 return data.courses || [];
             } catch (error) {
@@ -139,7 +139,7 @@
             } else {
                 noCoursesMessage.classList.add('hidden');
                 enrollCourseTitle.classList.remove('hidden');
-                const baseURL = "http://127.0.0.1:8000"; // Ensure baseURL is correct
+                const baseURL = "https://online-school-project.onrender.com"; // Ensure baseURL is correct
                 courses.forEach(course => {
                     const courseImage = `${baseURL}${course.course.image}`; // Fix: Removed space between baseURL and course image
                     const courseCard = document.createElement('div');

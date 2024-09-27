@@ -257,7 +257,7 @@
       // Function to fetch and populate the department dropdown
       async function fetchDepartments() {
         try {
-          const response = await fetch(`http://127.0.0.1:8000/api/admin/${userId}/Department/`);
+          const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/Department/`);
           if (!response.ok) {
             throw new Error("Failed to fetch departments.");
           }
@@ -310,7 +310,7 @@
           
         })
         try {
-          const response = await fetch(`http://127.0.0.1:8000/api/admin/${userId}/teacher/`, {
+          const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/teacher/`, {
             method: 'POST',
             body: formData,  // Send the FormData object
           });

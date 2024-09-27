@@ -2,7 +2,7 @@
 async function fetchTeacherProfile() {
     const userId=localStorage.getItem("user_id")
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/teachers/user/${userId}/`);
+        const response = await fetch(`https://online-school-project.onrender.com/api/teachers/user/${userId}/`);
         const data = await response.json();
 
         // Update profile details in the HTML

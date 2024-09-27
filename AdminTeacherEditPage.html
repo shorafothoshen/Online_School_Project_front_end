@@ -264,7 +264,7 @@
             // Function to fetch and populate the form with teacher data
             const fetchTeacherData = async () => {
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/api/admin/${userId}/teacher/${teacherId}/`);
+                    const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/teacher/${teacherId}/`);
                     const data = await response.json();
                     document.getElementById('first-name').value = data.user.first_name;
                     document.getElementById('last-name').value = data.user.last_name;
@@ -284,7 +284,7 @@
             // Async function to fetch departments and populate the select options
             const fetchDepartments = async (selectedDepartment) => {
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/api/admin/${userId}/Department/`);
+                    const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/Department/`);
                     const departments = await response.json();
                     const departmentSelect = document.getElementById('department');
                     departmentSelect.innerHTML = ''; // Clear existing options
@@ -340,7 +340,7 @@
 
                 // Send PATCH request
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/api/admin/${userId}/teacher/${teacherId}/`, {
+                    const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/teacher/${teacherId}/`, {
                         method: 'PATCH',
                         body: formData // No need to set headers when using FormData
                     });

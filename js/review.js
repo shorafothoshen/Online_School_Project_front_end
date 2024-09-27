@@ -1,7 +1,7 @@
 // Fetch and load reviews from the API
 const loadReview = async () => {
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/course/show-review/"); // Replace with your API endpoint
+        const res = await fetch("https://online-school-project.onrender.com/api/course/show-review/"); // Replace with your API endpoint
         if (!res.ok) {
             throw new Error('Network response was not ok');
         }

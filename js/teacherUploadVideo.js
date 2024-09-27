@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Fetch the weeks from the API
-        const response = await fetch(`http://127.0.0.1:8000/api/teachers/${userId}/courses/${courseId}/weeks/`);
+        const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/${courseId}/weeks/`);
 
         if (!response.ok) {
             throw new Error(`Error fetching weeks: ${response.statusText}`);
@@ -43,7 +43,7 @@ const saveWeek = async (event) => {
     }
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/teachers/${userId}/courses/${courseId}/weeks/`, {
+        const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/${courseId}/weeks/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ const uploadVideo = async (event) => {
         formData.append('user_id', userId);     // Append the user ID here (if necessary)
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/teachers/${userId}/videos/`, {
+            const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/videos/`, {
                 method: 'POST',
                 body: formData,
             });
@@ -132,7 +132,7 @@ async function fetchVideos() {
     const userId = localStorage.getItem('user_id');
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/teachers/${userId}/courses/${courseId}/videos/`);
+        const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/${courseId}/videos/`);
         const videos = await response.json();
 
         videoList.innerHTML = ''; // Clear the video list

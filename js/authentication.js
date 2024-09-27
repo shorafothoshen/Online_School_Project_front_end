@@ -22,7 +22,7 @@ const HandleRegistration = async (event) => {
     
     if (password === confirm_password) {
         try {
-            const res = await fetch("http://127.0.0.1:8000/api/account/register/", {
+            const res = await fetch("https://online-school-project.onrender.com/api/account/register/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Handle logout functionality
 const handlegout = async () => {
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/account/logout/");
+        const res = await fetch("https://online-school-project.onrender.com/api/account/logout/");
         const logout = await res.json();
         console.log("Logout response:", logout);
 
@@ -163,7 +163,7 @@ const HandleLogin = async (event) => {
     const password = get_value("password");
 
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/account/login/", {
+        const res = await fetch("https://online-school-project.onrender.com/api/account/login/", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -202,7 +202,7 @@ const HandleLogin = async (event) => {
 
 const NavbarImage = async () => {
     const user = localStorage.getItem("user_id");  
-    const res = await fetch(`http://127.0.0.1:8000/api/account/profile/${user}`);
+    const res = await fetch(`https://online-school-project.onrender.com/api/account/profile/${user}`);
     const profileData = await res.json();
     
     document.getElementById('profileImage1').src = profileData.image;

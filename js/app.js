@@ -1,5 +1,5 @@
 const loadCard=async()=>{
-    const res=await fetch("http://127.0.0.1:8000/api/course/");
+    const res=await fetch("https://online-school-project.onrender.com/api/course/");
     const cards=await res.json();
 
     displayCards(cards);
@@ -39,7 +39,7 @@ const displayCards=(card)=>{
 // Fetch and load reviews from the API
 const LoadTeacher = async () => {
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/teachers/"); // Replace with your API endpoint
+        const res = await fetch("https://online-school-project.onrender.com/api/teachers/"); // Replace with your API endpoint
         if (!res.ok) {
             throw new Error('Network response was not ok');
         }

@@ -14,7 +14,7 @@ const Contact = async (event) => {
     };
 
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/admin/contact/", {
+        const res = await fetch("https://online-school-project.onrender.com/api/admin/contact/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

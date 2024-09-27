@@ -1,6 +1,6 @@
 const LoadVideoDetails = async () => {
   const courseId = new URLSearchParams(location.search).get("coursvideoId");
-  const res = await fetch(`http://127.0.0.1:8000/api/course/${courseId}/videos/`);
+  const res = await fetch(`https://online-school-project.onrender.com/api/course/${courseId}/videos/`);
   const courseVideo = await res.json();
 
   displayVideo(courseVideo);
@@ -54,7 +54,7 @@ const loadVideo = async (videoId, event) => {
   const videoTitle = document.getElementById("videoTitle");
   
   try {
-    const res = await fetch(`http://127.0.0.1:8000/api/course/video/${videoId}/`);
+    const res = await fetch(`https://online-school-project.onrender.com/api/course/video/${videoId}/`);
     const videoData = await res.json();
 
     if (videoData && videoData.video_file) {
