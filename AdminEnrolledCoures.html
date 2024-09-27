@@ -181,40 +181,8 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">1</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">User 1</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">Course Title 1</td>
-                                   
-                                    <td class="px-6 py-4 whitespace-nowrap">01/07/2023</td>
-                                    
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <button
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><i
-                                                class="fas fa-edit"></i>Edit</button>
-                                        <button
-                                            class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"><i
-                                                class="fas fa-trash"></i>Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">2</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">User 2</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">Course  2</td>
-                                   
-                                    <td class="px-6 py-4 whitespace-nowrap">01/08/2023</td>
-                                    
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <button
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><i
-                                                class="fas fa-edit"></i>Edit</button>
-                                        <button
-                                            class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"><i
-                                                class="fas fa-trash"></i>Delete</button>
-                                    </td>
-                                </tr>
-                                <!-- Add more rows as needed -->
+                            <tbody id="enrolltable" class="bg-white divide-y divide-gray-200">
+                               
                             </tbody>
                         </table>
                     </div>
@@ -225,6 +193,61 @@
     </div>
     <script src="./js/authentication.js"></script>
     <script src="./js/AdminDeshboard.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userId=localStorage.getItem("user_id")
+        const tableBody = document.getElementById("enrolltable")
+    
+        // Function to fetch data from the API
+        async function fetchEnrolledCourses() {
+          try {
+            const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/enrolled/`);
+            const data = await response.json();
+            renderTable(data);
+          } catch (error) {
+            console.error("Error fetching enrolled courses:", error);
+          }
+        }
+    
+        // Function to render the enrolled courses data into the table
+        function renderTable(enrollments) {
+          tableBody.innerHTML = ""; // Clear any existing data
+          enrollments.forEach((enrollment, index) => {
+            const row = document.createElement("tr");
+    
+            row.innerHTML = `
+              <td class="px-6 py-4 whitespace-nowrap">${index + 1}</td>
+              <td class="px-6 py-4 whitespace-nowrap">${enrollment.user.first_name} ${enrollment.user.last_name}</td>
+              <td class="px-6 py-4 whitespace-nowrap">${enrollment.course.title}</td>
+              <td class="px-6 py-4 whitespace-nowrap">${new Date(enrollment.enroll_date).toLocaleDateString()}</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="editCourse(${enrollment.id})"><i class="fas fa-edit"></i> Edit</button>
+                <button class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="deleteCourse(${enrollment.id})"><i class="fas fa-trash"></i> Delete</button>
+              </td>
+            `;
+            tableBody.appendChild(row);
+          });
+        }
+    
+        // Function to handle edit course (dummy function for now)
+        function editCourse(courseId) {
+          alert(`Edit course with ID: ${courseId}`);
+          // Implement the logic for editing the course
+        }
+    
+        // Function to handle delete course (dummy function for now)
+        function deleteCourse(courseId) {
+          alert(`Delete course with ID: ${courseId}`);
+          // Implement the logic for deleting the course
+        }
+    
+        // Fetch and render enrolled courses on page load
+        fetchEnrolledCourses();
+      });
+    </script>
+    
+
     <script>
       document.getElementById('menu-btn').addEventListener('click', () => {
         document.getElementById('sidebar').classList.toggle('hidden');

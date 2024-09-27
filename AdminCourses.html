@@ -200,7 +200,7 @@
                   </tr>
                 </thead>
                 <tbody id="courseTableBody" class="bg-white divide-y divide-gray-200">
-                 
+
                   <!-- Add more rows as needed -->
                 </tbody>
               </table>
@@ -217,9 +217,10 @@
 
     // Function to fetch and display course data
     async function fetchCourses() {
+      const userId = localStorage.getItem("user_id");
       try {
         // Fetch course data from the API
-        const response = await fetch('https://online-school-project.onrender.com/api/course/');
+        const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/course/`);
 
         // Check if the response is okay (status code in the range 200-299)
         if (!response.ok) {
@@ -228,6 +229,7 @@
 
         // Parse the JSON response
         const data = await response.json();
+        console.log(data)
         const courseTableBody = document.getElementById('courseTableBody');
 
         // Clear existing rows if any
@@ -235,24 +237,26 @@
 
         // Loop through the course data and create rows
         data.forEach(course => {
+          console.log(course.id);
+
           const row = document.createElement('tr');
 
           row.innerHTML = `
-                <td class="px-6 py-4 whitespace-nowrap">${course.id}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${course.title}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${course.instructor.user.first_name} ${course.instructor.user.last_name}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${course.department}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${course.amount}</td>
-                <td class="px-6 py-4 whitespace-nowrap max-w-xs truncate">${course.description}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${new Date(course.created_at).toLocaleDateString()}</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <img src="${course.image}" class="w-14 h-14" alt="Course Image">
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="editCourse(${course.id})"><i class="fas fa-edit"></i>Edit</button>
-                    <button class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="deleteCourse(${course.id})"><i class="fas fa-trash"></i>Delete</button>
-                </td>
-            `;
+        <td class="px-6 py-4 whitespace-nowrap">${course.id}</td>
+        <td class="px-6 py-4 whitespace-nowrap">${course.title}</td>
+        <td class="px-6 py-4 whitespace-nowrap">${course.instructor ? `${course.instructor.user.first_name} ${course.instructor.user.last_name}` : 'N/A'}</td>
+        <td class="px-6 py-4 whitespace-nowrap">${course.department ? course.department : 'N/A'}</td>
+        <td class="px-6 py-4 whitespace-nowrap">${course.amount}</td>
+        <td class="px-6 py-4 whitespace-nowrap max-w-xs truncate">${course.description}</td>
+        <td class="px-6 py-4 whitespace-nowrap">${new Date(course.created_at).toLocaleDateString()}</td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <img src="${course.image}" class="w-14 h-14" alt="Course Image">
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="editCourse(${course.id})"><i class="fas fa-edit"></i>Edit</button>
+          <button class="bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="deleteCourse(${course.id})"><i class="fas fa-trash"></i>Delete</button>
+        </td>
+      `;
 
           courseTableBody.appendChild(row);
         });
