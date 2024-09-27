@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body class="min-h-screen bg-gradient-to-r from-purple-300 to-blue-100">
+
+    <nav class="bg-[#343c97] p-4 shadow-lg px-6 md:px-20">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <a href="./index.html" class="text-white text-3xl font-bold">EduVenture</a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <div class="hidden w-full md:flex md:items-center md:w-auto">
+                <a href="./index.html" class="text-white mx-3 hover:underline">Home</a>
+                <a href="#" class="text-white mx-3 hover:underline">About</a>
+                <a href="./coursePage.html" id="coursesLink" class="text-white mx-3 hover:underline">Courses</a>
+            
+    
+                <!-- Profile Dropdown for Desktop -->
+                <div id="profileDropdown" class="relative hidden md:block transition z-50">
+                    <button onclick="toggleDropdown()" class="flex items-center text-white focus:outline-none">
+                        <img src="/image/profile_default_image.png" alt="Profile" class="h-10 w-10 rounded-full">
+                    </button>
+                    <div id="dropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden">
+                        <div class="flex flex-col justify-center items-center">
+                            <img src="/image/profile_default_image.png" alt="Profile" class="h-24 w-24 rounded-full mt-3">
+                            <h1>Md. Shorafot Hoshen</h1>
+                        </div>
+                        <a href="./profile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</a>
+                        <button id="logoutButton" onclick="handlegout()" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+                    </div>
+                </div>
+    
+                 <!-- Desktop Sign Up and Login -->
+                 <a href="./login.html" id="loginButton"
+                 class="bg-[#3e4bd2] text-white mx-3 py-2 px-4 rounded-xl hover:bg-white hover:text-[#3e4bd2]">Login</a>
+                 <a href="./signUp.html" id="signUpButton"
+                     class="bg-white text-blue-700 mx-3 py-2 px-4 rounded-xl hover:bg-gray-200 ml-4">Sign Up</a>
+                  
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="flex flex-col items-center justify-center hidden md:hidden bg-[#343c97] p-4">
+            <div id="mobileProfileDropdown" class="relative md:hidden transition z-50">
+                <button onclick="toggleMobileDropdown()" class="flex items-center text-white focus:outline-none">
+                    <img src="/image/profile_default_image.png" alt="Profile" class="h-14 w-14 rounded-full">
+                </button>
+                <div id="mobileDropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden">
+                    <div class="flex flex-col justify-center items-center">
+                        <img src="/image/profile_default_image.png" alt="Profile" class="h-24 w-24 rounded-full mt-3">
+                        <h1>Md. Shorafot Hoshen</h1>
+                    </div>
+                    <a href="./profile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</a>
+                    <button id="mobileLogoutButton" onclick="handlegout()" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+                </div>
+            </div>
+            <a href="./index.html" class="text-white block mb-2">Home</a>
+            <a href="#" class="text-white block mb-2">About</a>
+            <a href="./coursePage.html" id="mobileCoursesLink" class="text-white block mb-2 hidden">Courses</a>
+            <a href="#" class="text-white block mb-2">Contact</a>
+            <a href="./signUp.html" id="mobileSignUpButton" class="bg-white text-purple-700 block py-2 px-4 rounded-full hover:bg-gray-200 mt-2">Sign Up</a>
+            <a href="./login.html" id="mobileLoginButton" class="bg-purple-700 text-white block py-2 px-4 rounded-full hover:bg-purple-800 mt-2">Login</a>
+        </div>
+    </nav>
+   <main class="pb-20">
+    <div class="flex justify-center items-center pt-14">
+        <div class="bg-white rounded-lg shadow-lg flex flex-col lg:flex-row w-3/4 max-w-5xl overflow-hidden">
+            <!-- Left Side -->
+            <div class="bg-purple-700 text-white p-10 flex flex-col justify-center w-full lg:w-1/2 relative rounded-tl-3xl rounded-br-3xl lg:rounded-bl-3xl lg:rounded-tr-none">
+                <h2 class="text-3xl font-bold mb-4">Create a new account.</h2>
+                <p class="text-sm mb-8">
+                    Embark on a Journey to a Healthier Lifestyle with Our Fitness and Wellness Community. Sign Up Today!
+                </p>
+                <div class="mb-8 hidden lg:block">
+                    <img src="./image/Sign up-amico.png" alt="Placeholder Image" class="w-full h-auto rounded-lg">
+                </div>
+            </div>
+            <!-- Right Side -->
+            <div class="p-10 flex flex-col justify-center w-full lg:w-1/2 relative">
+                <h1 class="text-3xl font-semibold mb-6 text-gray-800">Get started</h1>
+                
+                <form onsubmit="HandleRegistration(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="first-name">First Name</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" placeholder="First name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="last-name">Last Name</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last-name" type="text" placeholder="Last name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" required>
+                    </div>
+                    
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="Birthday">Birthday</label>
+                            <input
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="Birthday" type="date" placeholder="Birthday" required>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                            <div class="flex">
+                                <label class="inline-flex items-center mr-4">
+                                    <input type="radio" class="form-radio text-purple-600" name="gender" value="Male" required>
+                                    <span class="ml-2">Male</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="form-radio text-purple-600" name="gender" value="Female" required>
+                                    <span class="ml-2">Female</span>
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="confirm_password">Confirm Password</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="confirm_password" type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Sign up
+                        </button>
+                    </div>
+                    <p class="mb-4 pt-2">Already a member? <a href="./login.html" class="text-purple-700 hover:underline">Log in</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+   </main>
+
+   <!-- Modal -->
+   <div id="verifyModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
+        <img src="./image/gmail-logo-png-UbCiBR.png" alt="Verification Icon" class="mx-auto mb-4 w-10 h-10" />
+        <h2 class="text-xl font-semibold mb-4">Verify your account</h2>
+        <p class="mb-4">Thanks for joining! We just sent a verification link to your email. Click on it and get started sending payments!</p>
+        <button onclick="closeModal()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mx-auto">OK</button>
+        <p class="mt-4 text-gray-600">Don’t see the email? <a href="https://www.gmail.com" target="_blank" class="text-blue-500 hover:underline">Click here</a> to resend it.</p>
+    </div>
+</div>
+
+<div id="errorModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
+        <img src="./image/signs-close-icon-png.webp" alt="Verification Icon" class="mx-auto mb-4 w-10 h-10" />
+        <h2 class="text-xl font-semibold mb-4">Registration failed!!</h2>
+        <p id="errors" class="mb-4"></p>
+        <button onclick="closeErrorModal()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mx-auto">OK</button>
+    </div>
+</div>
+
+<footer class="bg-[#222222] py-8">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3 text-gray-200">
+            <div class="text-center md:text-left">
+                <h2 class="text-xl font-bold text-teal-400">EduVenture</h2>
+                <p class="mt-4 text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, dignissimos.</p>
+                <div class="flex justify-center md:justify-start mt-4 space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="text-center md:text-left">
+                <h3 class="text-lg font-semibold text-gray-200">Quick Links</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">About</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Courses</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Contact</a></li>
+                </ul>
+            </div>
+            <div class="text-center md:text-left">
+                <h3 class="text-lg font-semibold text-gray-200">Useful Links</h3>
+                <ul class="mt-4 space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Help Center</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Ask Questions</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Send Feedback</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Terms of Use</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-400 pt-4 text-center text-gray-400">
+            <p>Created By <a href="#" class="text-teal-400 hover:underline">Mr. Shorafot Hoshen</a> | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+    
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="./js/project.js"></script>
+    <script src="./js/authentication.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/enrolledVideo.js"></script>
+</body>
+</html>

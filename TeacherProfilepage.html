@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="./TeacherDeshborad.html" class="text-2xl font-bold text-gray-800">Teacher Dashboard</a>
+                </div>
+
+                <!-- Responsive Hamburger Menu -->
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="menu-btn"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Navbar Links -->
+                <div class="hidden md:flex md:space-x-8 items-center">
+                    <a href="./TeacherDeshborad.html" class="text-gray-600 hover:text-gray-800">Dashboard</a>
+                    <a href="./TeacherCreateCourse.html" class="text-gray-600 hover:text-gray-800">Create Courses</a>
+                    <a href="./TeacherProfilepage.html" class="text-gray-600 hover:text-gray-800">Profile</a>
+                    <button onclick="handlegout()" class="text-gray-600 hover:text-gray-800">Logout</button>
+                </div>
+
+                <!-- Teacher Profile -->
+                <div class="hidden md:flex items-center">
+                    <img id="navbar-teacher-image" src="" alt="Teacher Image"
+                        class="w-10 h-10 rounded-full object-cover mr-2">
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden">
+            <div id="mobile-menu" class="hidden space-y-1 px-2 pt-2 pb-3 sm:px-3">
+                <a href="./TeacherDeshborad.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900">Dashboard</a>
+                <a href="./TeacherCreateCourse.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900">Create
+                    Courses</a>
+                <a href="./TeacherProfilepage.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900">Profile</a>
+                <button onclick="handlegout()"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="container mx-auto p-6 pt-24">
+        <div class="bg-white shadow-lg rounded-lg p-6 max-w-3xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <img id="teacher-profile-image" src="" alt="Profile Picture" class="w-32 h-32 rounded-full border-2 border-gray-300">
+                <div class="ml-0 mt-4 md:ml-6 md:mt-0">
+                    <h1 id="teacher-name" class="text-3xl font-bold text-gray-900">John Doe</h1>
+                    <p id="teacher-email" class="text-gray-600">john.doe@example.com</p>
+                </div>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-800">Bio</h2>
+                <p id="teacher-bio" class="text-gray-700 mt-2">Passionate educator with over 10 years of experience in the field of education.</p>
+            </div>
+
+            <!-- Location Section -->
+            <div class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-800">Location</h2>
+                <p id="teacher-location" class="text-gray-700 mt-2">New York, USA</p>
+            </div>
+
+            <!-- Department Section -->
+            <div class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-800">Department</h2>
+                <p id="teacher-department" class="text-gray-700 mt-2">Computer Science</p>
+            </div>
+
+            <!-- Edit Profile Button -->
+            <div class="mt-6">
+                <a href="/edit_teacher_profile/1" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200">
+                    Edit Profile
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    <script src="./js/TeacherProfilePage.js"></script>
+    <script src="./js/authentication.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+.rounded-br-3xl {
+    border-bottom-right-radius: 1.5rem;
+}
+.rounded-tl-3xl {
+    border-top-left-radius: 1.5rem;
+}
+
+.hidden {
+    display: none;
+}
+.transition {
+    transition: all 0.3s ease-in-out;
+}
+.carousel-inner {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+}
+
+/* Hide scrollbar for Webkit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for all browsers */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+
+
+
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+/* .carousel-item {
+    min-width: 33.333%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    position: relative;
+} */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10; /* Ensure buttons are above cards */
+}
+.carousel-button-prev {
+    left: 1rem;
+}
+.carousel-button-next {
+    right: 1rem;
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.carousel-item:hover .modal {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    
+}
+
+ /* Modal background color */
+ .modal-bg {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Stars color */
+.fa-star.active {
+    color: #fbbf24; /* yellow-400 */
+}
+
+/* Modal transition */
+.modal-fade {
+    transition: opacity 0.3s ease;
+}

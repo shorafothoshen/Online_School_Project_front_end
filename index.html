@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVenture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="bg-[#343c97] p-4 shadow-lg px-6 md:px-20">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <a href="./index.html" class="text-white text-3xl font-bold">EduVenture</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="hidden w-full md:flex md:items-center md:w-auto">
+                <a href="./index.html" class="text-white mx-3 hover:underline">Home</a>
+                <a href="#" class="text-white mx-3 hover:underline">About</a>
+                <a href="./coursePage.html" id="coursesLink" class="text-white mx-3 hover:underline">Courses</a>
+
+                <!-- Profile Dropdown for Desktop -->
+                <div id="profileDropdown" class="relative hidden md:block transition z-50">
+                    <button onclick="toggleDropdown()" class="flex items-center text-white focus:outline-none">
+                        <img id="profileImage1" src="/image/profile_default_image.png" alt="Profile"
+                            class="h-10 w-10 rounded-full">
+                    </button>
+                    <div id="dropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden">
+                        <div class="flex flex-col justify-center items-center">
+                            <img id="profileImage2" src="/image/profile_default_image.png" alt="Profile"
+                                class="h-24 w-24 rounded-full mt-3">
+                            <h1 id="profileName1" class="mt-3"></h1>
+                        </div>
+                        <a href="./profile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</a>
+                        <button id="logoutButton" onclick="handlegout()"
+                            class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Desktop Sign Up and Login -->
+                <a href="./login.html" id="loginButton"
+                class="bg-[#3e4bd2] text-white mx-3 py-2 px-4 rounded-xl hover:bg-white hover:text-[#3e4bd2]">Login</a>
+                <a href="./signUp.html" id="signUpButton"
+                    class="bg-white text-blue-700 mx-3 py-2 px-4 rounded-xl hover:bg-gray-200 ml-4">Sign Up</a>
+                    
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="flex flex-col items-center justify-center hidden md:hidden bg-[#343c97] p-4">
+            <div id="mobileProfileDropdown" class="relative md:hidden transition z-50">
+                <button onclick="toggleMobileDropdown()" class="flex items-center text-white focus:outline-none">
+                    <img id="profileImage3" src="/image/profile_default_image.png" alt="Profile"
+                        class="h-14 w-14 rounded-full">
+                </button>
+                <div id="mobileDropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden">
+                    <div class="flex flex-col justify-center items-center">
+                        <img id="profileImage4" src="/image/profile_default_image.png" alt="Profile"
+                            class="h-24 w-24 rounded-full mt-3">
+                        <h1 id="profileName2" class="mt-3"></h1>
+                    </div>
+                    <a href="./profile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</a>
+                    <button id="mobileLogoutButton" onclick="handlegout()"
+                        class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+                </div>
+            </div>
+            <a href="./index.html" class="text-white block mb-2">Home</a>
+            <a href="#" class="text-white block mb-2">About</a>
+            <a href="./coursePage.html" id="mobileCoursesLink" class="text-white block mb-2 hidden">Courses</a>
+            <a href="#" class="text-white block mb-2">Contact</a>
+            <a href="./signUp.html" id="mobileSignUpButton"
+                class="bg-white text-blue-700 mx-3 py-2 px-4 rounded-xl hover:bg-gray-200 mt-2">Sign Up</a>
+            <a href="./login.html" id="mobileLoginButton"
+                class="bg-[#3e4bd2] text-white mx-3 py-2 px-4 rounded-xl hover:bg-white hover:text-[#3e4bd2] mt-2">Login</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="relative">
+            <img src="./image/Online-School-is-better-alternative-768x512.jpg" alt="Background Image"
+                class="w-full h-[600px] object-cover">
+            <div
+                class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+                <h1 class="text-4xl font-bold">Enhance Your Future With TechEduca</h1>
+                <p class="mt-4 text-lg max-w-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+                    neque suscipit aut ullam quisquam laboriosam eum nesciunt quos, molestias optio tenetur nobis vel
+                    sint quis veniam molestiae nemo deserunt autem!</p>
+                <div class="mt-6 flex space-x-4">
+                    <a href="#"
+                        class="px-6 py-2 bg-blue-800 hover:bg-blue-700 text-white font-bold rounded transition duration-300">Learn
+                        More</a>
+                    <a href="#"
+                        class="px-6 py-2 bg-yellow-500 hover:bg-yellow-400 text-white font-bold rounded transition duration-300">Visit
+                        Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3" style="width: 87%; margin: auto;">
+                <!-- Left Column with Images -->
+                <div class="grid grid-cols-1 gap-4 w-[500px]">
+                    <div class="aspect-w-1 aspect-h-1">
+                        <img src="./image/student1.jpg" alt="Student with yellow background"
+                            class="object-cover rounded-lg">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="aspect-w-1 aspect-h-1">
+                            <img src="image/student2.webp" alt="Student with laptop" class="object-cover rounded-lg">
+                        </div>
+                        <div class="aspect-w-1 aspect-h-1">
+                            <img src="image/student3.jpg" alt="Student sitting with laptop"
+                                class="object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column with Text -->
+                <div class="space-y-6 pt-8">
+                    <h2 class="text-3xl font-bold text-gray-800">Welcome to TechEduca, Enhance your skills with best
+                        Online Courses</h2>
+                    <p class="text-gray-600">You can start and finish one of these popular courses in under a day – for
+                        free! Check out the list below. Take the course for free</p>
+                    <div class="space-y-14">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <img src="./image/fe1.png" alt="400+ Courses" class="w-12 h-12">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">400+ Courses</h3>
+                                <p class="text-gray-600">You can start and finish one of these popular courses in under
+                                    our site</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <img src="./image/fe2.png" alt="Lifetime Access" class="w-12 h-12">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Lifetime Access</h3>
+                                <p class="text-gray-600">You can start and finish one of these popular courses in under
+                                    our site</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher Carousel -->
+<div class="container mx-auto">
+    <div class="text-center mb-8">
+        <h2 class="text-4xl font-bold text-pink-600">Our Teacher</h2>
+        <p class="text-gray-600">Meet Professional Trainers</p>
+    </div>
+
+    <div class="relative w-full max-w-[85%] mx-auto">
+        <div id="TeacherCard" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory scrollbar-hide">
+            <!-- Teacher carousel cards will be inserted here -->
+        </div>
+        
+        <!-- Teacher Carousel controls -->
+        <button id="teacher-prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 rounded-full teacher-carousel-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="teacher-next" class="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 rounded-full teacher-carousel-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+        <div class="container mx-auto py-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Our Popular Courses</h2>
+                <p class="text-gray-600">Replenish man have thing gathering lights yielding shall you</p>
+            </div>
+            <div id="CourseCard" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" style="width: 92%; margin: auto;">
+                <!-- Course Card 1 -->
+
+            </div>
+        </div>
+
+        
+    <!-- Review Carousel -->
+<div class="container mx-auto">
+    <div class="text-center mb-8">
+        <h2 class="text-4xl font-bold text-center mb-6">
+            Customer's <span class="text-pink-600">Review</span>
+        </h2>
+    </div>
+
+    <div class="relative w-full max-w-[85%] mx-auto">
+        <div id="ReviewCard" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory scrollbar-hide">
+            <!-- Review carousel cards will be inserted here -->
+        </div>
+        
+        <!-- Review Carousel controls -->
+        <button id="review-prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 rounded-full review-carousel-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="review-next" class="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 rounded-full review-carousel-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<section class="py-12">
+    <div class="max-w-lg mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Contact Us</h2>
+        <form onsubmit="Contact(event)" class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="mb-4">
+                <label for="ContactName" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                <input type="text" id="ContactName" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="ContactEmail" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                <input type="email" id="ContactEmail" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="ContactSubject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                <input type="text" id="ContactSubject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter subject" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="ContactBody" class="block text-gray-700 font-medium mb-2">Message</label>
+                <textarea id="ContactBody" name="ContactBody" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Enter your message" required></textarea>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="w-full sm:w-auto bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 px-6 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-600 mb-4">Contact Submitted Successfully!</h2>
+            <p class="text-gray-700">Thank you for reaching out to us. We will get back to you soon.</p>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+
+    <footer class="bg-[#222222] py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3 text-gray-200">
+                <div class="text-center md:text-left">
+                    <h2 class="text-xl font-bold text-teal-400">EduVenture</h2>
+                    <p class="mt-4 text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem,
+                        dignissimos.</p>
+                    <div class="flex justify-center md:justify-start mt-4 space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold text-gray-200">Quick Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">About</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Courses</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold text-gray-200">Useful Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Help Center</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Ask Questions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Send Feedback</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Terms of Use</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-400 pt-4 text-center text-gray-400">
+                <p>Created By <a href="#" class="text-teal-400 hover:underline">Mr. Shorafot Hoshen</a> | All Rights
+                    Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="./js/project.js"></script>
+    <script src="./js/authentication.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/enrolledVideo.js"></script>
+    <script src="./js/profile.js"></script>
+    <script src="./js/review.js"></script>
+    <script src="./js/contactform.js"></script>
+
+</body>
+
+</html>

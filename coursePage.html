@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-[#343c97] p-4 shadow-lg px-6 md:px-20">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <a href="./index.html" class="text-white text-3xl font-bold">EduVenture</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="hidden w-full md:flex md:items-center md:w-auto">
+                <a href="./index.html" class="text-white mx-3 hover:underline">Home</a>
+                <a href="#" class="text-white mx-3 hover:underline">About</a>
+                <a href="./coursePage.html" id="coursesLink" class="text-white mx-3 hover:underline">Courses</a>
+
+                <div id="profileDropdown" class="relative hidden md:block">
+                    <button onclick="toggleDropdown()" class="flex items-center text-white focus:outline-none">
+                        <img id="profileImage1" src="/image/profile_default_image.png" alt="Profile"
+                            class="h-10 w-10 rounded-full">
+                    </button>
+                    <div id="dropdownMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden">
+                        <div class="flex flex-col justify-center items-center">
+                            <img id="profileImage2" src="/image/profile_default_image.png" alt="Profile"
+                                class="h-24 w-24 rounded-full mt-3">
+                            <h1 id="profileName1" class="mt-3"></h1>
+                        </div>
+                        <a href="./profile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</a>
+                        <button id="logoutButton" onclick="handlegout()"
+                            class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+                    </div>
+                </div>
+
+                <a href="./login.html" id="loginButton"
+                    class="bg-[#3e4bd2] text-white mx-3 py-2 px-4 rounded-xl hover:bg-white hover:text-[#3e4bd2]">Login</a>
+                <a href="./signUp.html" id="signUpButton"
+                    class="bg-white text-blue-700 mx-3 py-2 px-4 rounded-xl hover:bg-gray-200 ml-4">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex flex-col justify-center items-center mt-10 mb-10">
+        <h2 id="enroll-course" class="text-3xl font-bold mb-8">Your Courses</h2>
+        <div id="course-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-4/5">
+            <!-- Dynamic content will be inserted here by JavaScript -->
+        </div>
+
+        <div id="no-courses-message" class="hidden flex flex-col justify-center items-center">
+            <p class="text-3xl font-semibold text-gray-800">No Courses Yet</p>
+            <p class="text-gray-600 mt-2">You haven't enrolled in any courses yet.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#222222] py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3 text-gray-200">
+                <div class="text-center md:text-left">
+                    <h2 class="text-xl font-bold text-teal-400">EduVenture</h2>
+                    <p class="mt-4 text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem,
+                        dignissimos.</p>
+                    <div class="flex justify-center md:justify-start mt-4 space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-teal-400"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold text-gray-200">Quick Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">About</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Courses</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold text-gray-200">Useful Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Help Center</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Ask Questions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Send Feedback</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Terms of Use</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-teal-400">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-400 pt-4 text-center text-gray-400">
+                <p>Created By <a href="#" class="text-teal-400 hover:underline">Mr. Shorafot Hoshen</a> | All Rights
+                    Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/project.js"></script>
+    <script src="./js/authentication.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/enrolledVideo.js"></script>
+    <script src="./js/profile.js"></script>
+
+    <script>
+        async function fetchCourses() {
+            const userId = localStorage.getItem("user_id");
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/payment/check-enrollment/${userId}/`);
+                const data = await response.json();
+                return data.courses || [];
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+                return [];
+            }
+        }
+
+        async function displayCourses() {
+            const courseContainer = document.getElementById('course-container');
+            const noCoursesMessage = document.getElementById('no-courses-message');
+            const enrollCourseTitle = document.getElementById('enroll-course');
+            const courses = await fetchCourses();
+
+            if (courses.length === 0) {
+                noCoursesMessage.classList.remove('hidden');
+                enrollCourseTitle.classList.add('hidden');
+            } else {
+                noCoursesMessage.classList.add('hidden');
+                enrollCourseTitle.classList.remove('hidden');
+                const baseURL = "http://127.0.0.1:8000"; // Ensure baseURL is correct
+                courses.forEach(course => {
+                    const courseImage = `${baseURL}${course.course.image}`; // Fix: Removed space between baseURL and course image
+                    const courseCard = document.createElement('div');
+                    courseCard.classList.add('p-6', 'border', 'border-gray-300', 'rounded-lg', 'bg-white', 'shadow-md',
+                        'flex', 'flex-col', 'justify-between', 'transition-transform', 'transform', 'hover:scale-105');
+
+                    courseCard.innerHTML = `
+                <img class="w-full h-40 object-cover rounded-t-lg" src="${courseImage}" alt="Course Image">
+                <h3 class="text-xl font-bold text-gray-800 mt-4">${course.course.title}</h3>
+                <p class="text-gray-600">Instructor: ${course.course.instructor.user.first_name} ${course.course.instructor.user.last_name}</p>
+            `;
+
+                    // Add click event to navigate to the course details page
+                    courseCard.onclick = function () {
+                        window.location.href = `./EnrolledVideo.html?coursvideoId=${course.course.id}`; // Fixed URL
+                    };
+
+                    courseContainer.appendChild(courseCard);
+                });
+            }
+        }
+
+        displayCourses();
+    </script>
+</body>
+
+</html>
