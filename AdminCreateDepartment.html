@@ -47,17 +47,18 @@
         </div>
 
         <div class="relative flex items-center space-x-6 pr-10">
-            <img id="AdminImage" src="https://via.placeholder.com/40" alt="profile" class="h-12 w-12 cursor-pointer rounded-full" />
-    
+            <img id="AdminImage" src="https://via.placeholder.com/40" alt="profile"
+                class="h-12 w-12 cursor-pointer rounded-full" />
+
             <div class="hidden text-white md:block">
-              <h3 id="AdminName" class="font-bold">John David</h3>
-              <p id="AdminEmail" class="text-sm">johndavid@gmail.com</p>
+                <h3 id="AdminName" class="font-bold">John David</h3>
+                <p id="AdminEmail" class="text-sm">johndavid@gmail.com</p>
             </div>
 
             <!-- Dropdown Menu -->
             <div id="dropdown" class="translate absolute right-0 z-50 mt-2 hidden w-48 rounded bg-white shadow-md">
                 <a href="AdminProfile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</a>
-                <a href="" onclick="handlegout()" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</a>
+                <a href="" onclick="logout()" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</a>
             </div>
         </div>
     </nav>
@@ -169,9 +170,26 @@
             </div>
         </main>
     </div>
-    <script src="./js/authentication.js"></script>
+
     <script src="./js/AdminDeshboard.js"></script>
     <script>
+
+        const logout = async () => {
+            try {
+                const res = await fetch("https://online-school-project.onrender.com/api/account/logout/");
+                const logout = await res.json();
+                console.log("Logout response:", logout);
+
+                localStorage.removeItem("Token");
+                localStorage.removeItem("user_id");
+
+                window.location.href = "./index.html";
+            } catch (error) {
+                console.error("An error occurred during logout:", error);
+            }
+        };
+
+
         document.getElementById('menu-btn').addEventListener('click', () => {
             document.getElementById('sidebar').classList.toggle('hidden');
         });
