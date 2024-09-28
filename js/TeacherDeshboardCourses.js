@@ -5,7 +5,7 @@ if (userId) {
     // Fetch the courses created by this teacher using their user_id
     const TeacherCreateDisplayCourse = async () => {
         try {
-            const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/`);
+            const response = await fetch(`https://online-school-989z.onrender.com/api/teachers/${userId}/courses/`);
 
             if (!response.ok) {
                 const errorMessage = await response.text();  // Get the error message from the response
@@ -64,7 +64,7 @@ const deleteCourse = async (courseId) => {
     }
 
     try {
-        const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/${courseId}/`, {
+        const response = await fetch(`https://online-school-989z.onrender.com/api/teachers/${userId}/courses/${courseId}/`, {
             method: 'DELETE'
         });
 

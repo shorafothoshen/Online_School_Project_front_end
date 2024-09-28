@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             // Send a POST request to the back-end API
-            const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/`, {
+            const response = await fetch(`https://online-school-989z.onrender.com/api/teachers/${userId}/courses/`, {
                 method: "POST",
                 body: formData // Send FormData directly
             });

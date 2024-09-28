@@ -206,7 +206,7 @@
       const tableBody = document.getElementById("teacherTableBody");
 
       try {
-        const response = await fetch(`https://online-school-project.onrender.com/api/admin/${userId}/teacher/`);
+        const response = await fetch(`https://online-school-989z.onrender.com/api/admin/${userId}/teacher/`);
         if (response.ok) {
           const teachers = await response.json();
 
@@ -251,7 +251,7 @@
 
     const logout = async () => {
       try {
-        const res = await fetch("https://online-school-project.onrender.com/api/account/logout/");
+        const res = await fetch("https://online-school-989z.onrender.com/api/account/logout/");
         const logout = await res.json();
 
         localStorage.removeItem("Token");

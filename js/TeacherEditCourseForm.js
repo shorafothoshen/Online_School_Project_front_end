@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Fetch existing course data to pre-fill form
     try {
-        const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/${courseId}/`);
+        const response = await fetch(`https://online-school-989z.onrender.com/api/teachers/${userId}/courses/${courseId}/`);
         if (response.ok) {
             const course = await response.json();
             document.getElementById("title").value = course.title;
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         try {
-            const response = await fetch(`https://online-school-project.onrender.com/api/teachers/${userId}/courses/${courseId}/`, {
+            const response = await fetch(`https://online-school-989z.onrender.com/api/teachers/${userId}/courses/${courseId}/`, {
                 method: "PATCH",
                 body: formData,
             });

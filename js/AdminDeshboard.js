@@ -1,7 +1,7 @@
 
 const AdminProfile = async () => {
     const user = localStorage.getItem("user_id");  
-    const res = await fetch(`https://online-school-project.onrender.com/api/account/profile/${user}`);
+    const res = await fetch(`https://online-school-989z.onrender.com/api/account/profile/${user}`);
     const profileData = await res.json();
     
     document.getElementById('AdminImage').src = profileData.image;
