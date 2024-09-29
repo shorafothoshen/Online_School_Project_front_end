@@ -172,7 +172,18 @@
     </div>
 
     <script src="./js/AdminDeshboard.js"></script>
-    
+    <script>
+        // autometive slug field create
+
+        document.getElementById("name").addEventListener("input", function () {
+            let nameValue = this.value;
+            let slugValue = nameValue
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^\w\-]+/g, "");
+            document.getElementById("slug").value = slugValue;
+        });
+    </script>
 </body>
 
 </html>

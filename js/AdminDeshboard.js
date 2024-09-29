@@ -19,16 +19,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-// autometive slug field create
-
-document.getElementById("name").addEventListener("input", function () {
-  let nameValue = this.value;
-  let slugValue = nameValue
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "");
-  document.getElementById("slug").value = slugValue;
-});
 
 const AdminProfile = async () => {
   const user = localStorage.getItem("user_id");
