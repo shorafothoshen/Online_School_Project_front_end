@@ -217,41 +217,6 @@
   </div>
 
   <script src="./js/AdminDeshboard.js"></script>
-  <script>
-    const logout = async () => {
-      try {
-        const res = await fetch("https://online-school-989z.onrender.com/api/account/logout/");
-        const logout = await res.json();
-        console.log("Logout response:", logout);
-
-        localStorage.removeItem("Token");
-        localStorage.removeItem("user_id");
-
-        window.location.href = "./index.html";
-      } catch (error) {
-        console.error("An error occurred during logout:", error);
-      }
-    };
-
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('sidebar').classList.toggle('hidden');
-    });
-
-    document.getElementById('AdminImage').addEventListener('click', (event) => {
-      event.stopPropagation(); // Prevents the event from bubbling up to the window
-      const dropdown = document.getElementById('dropdown');
-      dropdown.classList.toggle('hidden');
-    });
-
-    // Close the dropdown if clicked outside
-    window.addEventListener('click', (event) => {
-      const dropdown = document.getElementById('dropdown');
-      const profileButton = document.getElementById('AdminImage');
-      if (!dropdown.classList.contains('hidden') && !profileButton.contains(event.target)) {
-        dropdown.classList.add('hidden');
-      }
-    });
-  </script>
 </body>
 
 </html>
